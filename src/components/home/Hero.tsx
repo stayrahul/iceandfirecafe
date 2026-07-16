@@ -18,7 +18,7 @@ export default function Hero() {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % BACKGROUNDS.length);
-    }, 6000); // Change image every 6 seconds
+    }, 4000); // Change image every 4 seconds
     return () => clearInterval(timer);
   }, []);
 
@@ -30,9 +30,9 @@ export default function Hero() {
           <motion.div
             key={currentIndex}
             initial={{ opacity: 0, scale: 1 }}
-            animate={{ opacity: 0.6, scale: 1.05 }}
+            animate={{ opacity: 0.7, scale: 1.1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 2, ease: "easeInOut" }}
+            transition={{ duration: 1, ease: "easeInOut" }}
             className="absolute inset-0"
           >
             <Image 
@@ -55,7 +55,7 @@ export default function Hero() {
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
+          transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
           className="flex flex-col items-center"
         >
           <span className="text-[#FDFBF7]/80 text-xs sm:text-sm md:text-base font-medium tracking-[0.3em] uppercase mb-6 flex items-center gap-4">
@@ -76,15 +76,15 @@ export default function Hero() {
           <div className="flex flex-col sm:flex-row gap-5 w-full sm:w-auto">
             <Link
               href="/menu"
-              className="w-full sm:w-auto px-8 py-4 bg-[#C84B31] text-[#FDFBF7] font-semibold text-sm tracking-widest uppercase transition-all duration-300 hover:bg-[#A63A24] hover:shadow-[0_0_20px_rgba(200,75,49,0.4)] flex items-center justify-center rounded-sm group relative overflow-hidden"
+              className="w-full sm:w-auto px-10 py-4 bg-[#C84B31] text-[#FDFBF7] font-bold text-sm tracking-widest uppercase transition-all duration-300 hover:bg-[#A63A24] hover:shadow-[0_0_30px_rgba(200,75,49,0.6)] hover:scale-105 active:scale-95 flex items-center justify-center rounded-full group relative overflow-hidden"
             >
-              <span className="relative z-10">Explore Menu</span>
+              <span className="relative z-10 flex items-center gap-2">Explore Menu <span className="group-hover:translate-x-1 transition-transform">→</span></span>
               <div className="absolute inset-0 h-full w-0 bg-white/20 transition-all duration-300 ease-out group-hover:w-full" />
             </Link>
             
             <Link
               href="/visit"
-              className="w-full sm:w-auto px-8 py-4 bg-transparent border border-[#FDFBF7]/40 text-[#FDFBF7] font-semibold text-sm tracking-widest uppercase transition-all duration-300 hover:bg-[#FDFBF7] hover:text-[#2C1E16] flex items-center justify-center rounded-sm backdrop-blur-sm"
+              className="w-full sm:w-auto px-10 py-4 bg-transparent border-2 border-[#FDFBF7] text-[#FDFBF7] font-bold text-sm tracking-widest uppercase transition-all duration-300 hover:bg-[#FDFBF7] hover:text-[#2C1E16] hover:scale-105 active:scale-95 flex items-center justify-center rounded-full backdrop-blur-sm shadow-[0_0_15px_rgba(253,251,247,0.1)]"
             >
               Book a Table
             </Link>
@@ -96,7 +96,7 @@ export default function Hero() {
       <motion.div 
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.5, duration: 1 }}
+        transition={{ delay: 0.8, duration: 0.6 }}
         className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-20"
       >
         <span className="text-[#2C1E16] text-[10px] uppercase tracking-[0.2em] font-bold">Scroll</span>
