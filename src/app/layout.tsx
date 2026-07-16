@@ -1,16 +1,16 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
+import { Plus_Jakarta_Sans, Outfit } from "next/font/google";
 import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
 import CartDrawer from "../components/cart/CartDrawer";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
-const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfair" });
+const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"], variable: "--font-jakarta" });
+const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit" });
 
 export const metadata: Metadata = {
   title: "Ice & Fire Cafe",
-  description: "Experience Authentic Flavors.",
+  description: "Experience Authentic Flavors in Simraungadh.",
 };
 
 export default function RootLayout({
@@ -19,10 +19,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} ${playfair.variable} min-h-screen bg-[#FAF7F2] text-[#2C2C2C] font-sans selection:bg-[#8B3A3A]/20 selection:text-[#8B3A3A] antialiased`}>
+    <html lang="en" className="dark" suppressHydrationWarning>
+      <body className={`${jakarta.variable} ${outfit.variable} min-h-screen bg-[#111111] text-[#F8F9FA] font-sans antialiased selection:bg-[#FF5A36]/30 selection:text-[#FF5A36]`}>
         <Navbar />
-        <main>
+        <main className="relative z-10">
           {children}
         </main>
         <Footer />
