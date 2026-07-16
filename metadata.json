@@ -1,0 +1,6 @@
+{
+  "name": "ICE & FIRE CAFE",
+  "description": "A hyper-premium, god-level frontend for ICE & FIRE CAFE featuring thermal glassmorphism and Framer Motion interactions.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
