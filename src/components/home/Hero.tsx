@@ -1,75 +1,69 @@
 "use client";
 
-import { motion } from "motion/react";
-import Link from 'next/link';
+import { motion } from 'motion/react';
+import Image from 'next/image';
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#111111]">
-      
-      {/* Ambient Blobs */}
-      <div className="blob-fire w-[40vw] h-[40vw] top-10 left-10 animate-pulse mix-blend-screen" />
-      <div className="blob-ice w-[40vw] h-[40vw] bottom-10 right-10 animate-pulse mix-blend-screen" style={{ animationDelay: '2s' }} />
+    <section className="relative h-[85vh] sm:h-[100vh] min-h-[500px] sm:min-h-[600px] w-full flex items-center justify-center overflow-hidden bg-[#2C1E16]">
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <Image 
+          src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?q=80&w=2070&auto=format&fit=crop" 
+          alt="Ice & Fire Cafe Ambience" 
+          fill
+          sizes="100vw"
+          className="object-cover opacity-50 object-center"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#2C1E16]/70 via-transparent to-[#FDFBF7]" />
+      </div>
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 pt-20 flex flex-col items-center text-center">
-        
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="mb-6 flex items-center gap-3"
-        >
-          <span className="h-[1px] w-12 bg-gradient-to-r from-transparent to-white/30 hidden sm:block"></span>
-          <p className="text-[#FF5A36] font-medium tracking-[0.2em] uppercase text-sm sm:text-base">
-            Est. 2024 • Simraungadh
-          </p>
-          <span className="h-[1px] w-12 bg-gradient-to-l from-transparent to-white/30 hidden sm:block"></span>
-        </motion.div>
-
-        <motion.h1 
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
-          className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-serif font-bold text-white tracking-tighter leading-[0.9] mb-8"
-        >
-          Taste the <br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF5A36] via-[#FF8A65] to-[#00E5FF]">
-            Contrast
-          </span>
-        </motion.h1>
-
-        <motion.p 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.4 }}
-          className="max-w-2xl text-lg sm:text-xl md:text-2xl text-white/70 font-light leading-relaxed mb-12"
-        >
-          Experience a fiery fusion of flavors and icy-cool refreshments in the heart of Nepal.
-        </motion.p>
-
+      <div className="relative z-10 flex flex-col items-center text-center px-4 sm:px-6 mt-16 max-w-4xl mx-auto">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="flex flex-col sm:flex-row gap-6 w-full sm:w-auto"
+          transition={{ duration: 0.8 }}
+          className="text-[#FDFBF7]/90 text-xs sm:text-sm md:text-base font-medium tracking-[0.2em] uppercase mb-4 sm:mb-6"
         >
-          <Link 
-            href="/menu"
-            className="group relative inline-flex items-center justify-center px-8 py-4 bg-white text-[#111111] font-bold uppercase tracking-wider rounded-full overflow-hidden transition-all hover:scale-105 active:scale-95"
+          Welcome to
+        </motion.div>
+
+        <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-serif font-bold tracking-tight text-[#FDFBF7] mb-4 sm:mb-6 drop-shadow-lg leading-tight">
+          Ice & Fire Cafe
+        </h1>
+
+        <motion.p 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="text-base sm:text-lg md:text-xl text-[#FDFBF7]/90 max-w-2xl mb-8 sm:mb-12 font-light leading-relaxed drop-shadow-md px-4 sm:px-0"
+        >
+          Experience an exquisite culinary journey where bold spices meet comforting classics. Handcrafted daily in the heart of Simraungadh.
+        </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto px-4 sm:px-0"
+        >
+          <button
+            onClick={() => {
+              // Now we navigate to /menu since we have separate pages, or smooth scroll if on homepage
+              window.location.href = '/menu';
+            }}
+            className="w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 bg-[#C84B31] text-[#FDFBF7] font-medium text-sm md:text-base tracking-widest uppercase transition-colors hover:bg-[#A63A24] shadow-lg flex items-center justify-center gap-3 rounded-sm"
           >
-            <span className="relative z-10">Explore Menu</span>
-            <div className="absolute inset-0 bg-gradient-to-r from-[#FF5A36] to-[#00E5FF] opacity-0 group-hover:opacity-20 transition-opacity"></div>
-          </Link>
+            Explore Menu
+          </button>
           
-          <Link 
-            href="/visit"
-            className="inline-flex items-center justify-center px-8 py-4 border border-white/20 text-white font-bold uppercase tracking-wider rounded-full hover:bg-white/5 transition-all hover:scale-105 active:scale-95"
+          <button
+            className="w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 bg-transparent border border-[#FDFBF7] text-[#FDFBF7] font-medium text-sm md:text-base tracking-widest uppercase transition-colors hover:bg-[#FDFBF7] hover:text-[#2C1E16] flex items-center justify-center gap-3 rounded-sm"
           >
-            Visit Us
-          </Link>
+            Book a Table
+          </button>
         </motion.div>
       </div>
-
     </section>
   );
 }
